@@ -1,0 +1,69 @@
+<!doctype html>
+  <html lang=en>
+  <head>
+    <meta charset=utf-8>
+    <title>CSS Ring Spinner Example</title>
+    <style>
+      /* Vertically and horizontally center a block such as a <div>. */
+      .center {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .spinner__icon {
+        height: 28px;
+        padding-top: 2px;
+        width: 24px;
+      }
+      .spinner__text {
+        color: #7a7a7a;
+        font-family: "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+        font-size: 14px;
+        margin-top:58px;
+      }
+      .spinner__stationary-ring {
+        border: 3px solid #dbdbdb;
+        border-radius: 50%;
+        height: 74px;
+        width: 74px;
+      }
+      .spinner__moving-ring {
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-iteration-count: infinite;
+        animation-name: moving-ring;
+        animation-timing-function: linear;
+        border-left: 3px solid #a6a6a6;
+        border-radius: 100% 0 0 0;
+        border-top: 3px solid #a6a6a6;
+        height: 37px;
+        transform: translate(-3px, -3px);
+        transform-origin: bottom right;
+        width: 37px;
+      }
+      @keyframes moving-ring {
+        from {
+          transform: translate(-3px, -3px) rotate(0deg);
+        }
+        to {
+          transform: translate(-3px, -3px) rotate(359deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="center">
+      <div class="center spinner__stationary-ring">
+        <img alt="Redirecting"
+             class="center spinner__icon"
+             height="24"
+             src="hypothesis-logo-24x28.svg"
+             width="28">
+        <div class="spinner__moving-ring"></div>
+      </div>
+      <p class="center spinner__text">Redirecting</p>
+    </div>
+  </body>
+</html>
